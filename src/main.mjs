@@ -9,8 +9,8 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.get("/element/",controllerElementGet)
-app.post("/element/",controllerElementPost)
+ app.get("/elements/",controllerElementGet)
+app.post("/elements/",controllerElementPost)
 
 
 

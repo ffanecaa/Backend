@@ -5,35 +5,36 @@ import {Element} from "./db.mjs"
 async function controllerElementGet(peticion,resposta){
     if(peticion.query.id){
     try{
-     const element =await Element.findByPk(peticion.query.id)
+     const elemento =await Element.findByPk(peticion.query.id)
      resposta.setHeader("Content-Type","application/json")
      resposta.status(200)
-     resposta.send(element.toJSON())
+     resposta.send(elemento.toJSON())
     }catch (error){
      resposta.status(500)
-     resposta.send('fallo')
+     resposta.send('falloget')
     }
 
 } else{
     try{
         const TodosOsElementos = await Element.findAll()
-        resposta.SetHeader('Content-Type','application/json')
+        resposta.setHeader('Content-Type','application/json')
         resposta.status(200)
         //resposta.send(TodosOsElementos.toJSON())// metodo mas rapido con grandes datos// 
         resposta.send(JSON.stringify(TodosOsElementos)) 
     } catch(error){
         resposta.status(500)
-        resposta.send('fallo')
+        resposta.send('falloss')
     }
 }
 }
+//post -----------------------------------------//
 
-async function controllerElementPost(peticion,resposta){
+async function controllerElementPost(request,resposta){
     try{
-   const elementos = await Element.create(peticion.body)
-   resposta=setHeader('Content-Type','application/json')
+   const elementos = await Element.create(request.body)
+   resposta.setHeader('Content-Type','application/json')
    resposta.status(201)
-   resposta.send(elementos.toJSON())
+   resposta.json(elementos.toJSON())
 
 
 }catch(error){
