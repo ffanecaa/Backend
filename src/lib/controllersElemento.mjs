@@ -8,7 +8,7 @@ async function controllerElementGet(peticion,resposta){
      const elemento =await Element.findByPk(peticion.query.id)
      resposta.setHeader("Content-Type","application/json")
      resposta.status(200)
-     resposta.send(elemento.toJSON())
+     resposta.send(JSON.stringify(elemento))
     }catch (error){
      resposta.status(500)
      resposta.send('falloget')
