@@ -2,14 +2,14 @@ import {Element} from "./db.mjs"
 
 
 
-async function ControllerElementGet(peticion,resposta){
+async function controllerElementGet(peticion,resposta){
     if(peticion.query.id){
     try{
-     const Element =await Element.findByPK(peticion.query.id)
-     resposta.setHeader('content-type','application/json')
+     const element =await Element.findByPk(peticion.query.id)
+     resposta.setHeader("Content-Type","application/json")
      resposta.status(200)
-     resposta.send(Element.toJSON)
-    }catch(error){
+     resposta.send(element.toJSON())
+    }catch (error) {
      resposta.status(500)
      resposta.send('fallo')
     }
@@ -17,7 +17,7 @@ async function ControllerElementGet(peticion,resposta){
 } else{
     try{
         const TodosOsElementos = await Element.findAll()
-        resposta.SetHeader('content-type','application/json')
+        resposta.SetHeader('Content-Type','application/json')
         resposta.status(200)
         resposta.send(TodosOsElementos.toJSON())// metodo mas rapido con grandes datos// 
        // resposta.send(JSON.stringify(TodosOsElementos)) 
@@ -28,12 +28,12 @@ async function ControllerElementGet(peticion,resposta){
 }
 }
 
-async function ControllerElementPost(peticion,resposta){
+async function controllerElementPost(peticion,resposta){
     try{
-   const Element = await Element.create(peticion.body)
-   resposta=setHeader('content-type','application/json')
+   const elementos = await Element.create(peticion.body)
+   resposta=setHeader('Content-Type','application/json')
    resposta.status(200)
-   resposta.send(Element.toJSON())
+   resposta.send(elementos.toJSON())
 
 
 }catch(error){
@@ -46,6 +46,6 @@ async function ControllerElementPost(peticion,resposta){
 
 
 export{
-    ControllerElementGet,
-    ControllerElementPost
+    controllerElementGet,
+    controllerElementPost
 }
