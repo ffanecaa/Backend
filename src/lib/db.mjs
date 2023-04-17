@@ -56,5 +56,5 @@ export{
 Icon,
 Cathegory,
 Element,
-elementos
+
 }
