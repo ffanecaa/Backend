@@ -9,7 +9,7 @@ async function controllerElementGet(peticion,resposta){
      resposta.setHeader("Content-Type","application/json")
      resposta.status(200)
      resposta.send(element.toJSON())
-    }catch (error) {
+    }catch (error){
      resposta.status(500)
      resposta.send('fallo')
     }
@@ -19,11 +19,11 @@ async function controllerElementGet(peticion,resposta){
         const TodosOsElementos = await Element.findAll()
         resposta.SetHeader('Content-Type','application/json')
         resposta.status(200)
-        resposta.send(TodosOsElementos.toJSON())// metodo mas rapido con grandes datos// 
-       // resposta.send(JSON.stringify(TodosOsElementos)) 
+        //resposta.send(TodosOsElementos.toJSON())// metodo mas rapido con grandes datos// 
+        resposta.send(JSON.stringify(TodosOsElementos)) 
     } catch(error){
         resposta.status(500)
-        resposta.send('error')
+        resposta.send('fallo')
     }
 }
 }
@@ -32,13 +32,13 @@ async function controllerElementPost(peticion,resposta){
     try{
    const elementos = await Element.create(peticion.body)
    resposta=setHeader('Content-Type','application/json')
-   resposta.status(200)
+   resposta.status(201)
    resposta.send(elementos.toJSON())
 
 
 }catch(error){
    resposta.status(500)
-   resposta.send('error')
+   resposta.send('fallopost')
 }
 
 
