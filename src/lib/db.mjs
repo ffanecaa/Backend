@@ -55,5 +55,6 @@ await db.sync ({alter:true})
 export{
 Icon,
 Cathegory,
-Element
+Element,
+elementos
 }
