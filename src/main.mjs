@@ -12,7 +12,7 @@ app.use(express.json())
  app.get("/elements/",controllerElementGet)
 app.post("/elements/",controllerElementPost)
 app.post("/icons/",controllerIconPost)
-app.post("/icons/",controllerIconGet)
+app.get("/icons/",controllerIconGet)
 
 
 
