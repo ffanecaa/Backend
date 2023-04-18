@@ -1,7 +1,7 @@
 import express  from "express";
 import cors from "cors"
 import {controllerElementGet,controllerElementPost} from "./lib/controllersElemento.mjs"
-import { controllerIconPost } from "./lib/controllersIcon.mjs";
+import {controllerIconPost,controllerIconGet} from "./lib/controllersIcon.mjs";
 
 
 
@@ -11,7 +11,8 @@ app.use(express.json())
 
  app.get("/elements/",controllerElementGet)
 app.post("/elements/",controllerElementPost)
-app.post("/icon/",controllerIconPost)
+app.post("/icons/",controllerIconPost)
+app.post("/icons/",controllerIconGet)
 
 
 
