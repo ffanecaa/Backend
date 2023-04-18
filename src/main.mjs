@@ -1,7 +1,8 @@
 import express  from "express";
 import cors from "cors"
-import {controllerElementGet,controllerElementPost} from "./lib/controllersElemento.mjs"
+import {controllerElementGet,controllerElementPost,controllerElementDelete} from "./lib/controllersElemento.mjs"
 import {controllerIconPost,controllerIconGet} from "./lib/controllersIcon.mjs";
+import {controllerCathegoryPost} from "./lib/controllersCathegory.mjs"
 
 
 
@@ -11,8 +12,10 @@ app.use(express.json())
 
  app.get("/elements/",controllerElementGet)
 app.post("/elements/",controllerElementPost)
+app.delete("/elements/",controllerElementDelete)
 app.post("/icons/",controllerIconPost)
 app.get("/icons/",controllerIconGet)
+app.post("/cathegory/" ,controllerCathegoryPost)
 
 
 

@@ -45,8 +45,25 @@ async function controllerElementPost(request,resposta){
 
 }
 
+//------------------------delete--------------
+
+async function controllerElementDelete(request,response){
+try{
+const elemento = await Element.findByPk(request.body.id)
+await elemento.destroy()
+response.status(200)
+response.send('ok')
+}catch(error){
+ response.status(500)
+ response.send('error')
+}
+
+}
+
 
 export{
     controllerElementGet,
-    controllerElementPost
+    controllerElementPost,
+ controllerElementDelete
+
 }

@@ -43,8 +43,8 @@ const Element = db.define( 'Element',{
 
 });
 
-Icon.hasMany(Cathegory)
-Cathegory.belongsTo(Icon)
+Cathegory.hasOne(Icon)
+Icon.belongsTo(Cathegory)
 
 Cathegory.belongsToMany(Element, { through: 'CathegoryElement'})
 Element.belongsToMany(Cathegory, { through: 'CathegoryElement'})
