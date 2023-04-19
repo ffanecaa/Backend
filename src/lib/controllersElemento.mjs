@@ -55,10 +55,11 @@ response.status(200)
 response.send('ok')
 }catch(error){
  response.status(500)
- response.send('error')
+ response.send('erroress')
 }
 
 }
+
 
 
 export{
