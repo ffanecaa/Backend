@@ -4,10 +4,11 @@ import { Cathegory } from "./db.mjs";
 
 async function controllerCathegoryPost(request,response){
     try{
-        const cathegory = await Cathegory(request.body)
+        const cathegory = await Cathegory.create(request.body)
         response.setHeader("Content-Type","application/json")
         response.status(201)
         response.json(cathegory.toJSON())
+
     }catch(error){
         response.status(500)
         response.send('fallo')
@@ -17,7 +18,7 @@ async function controllerCathegoryPost(request,response){
 async function controllerCathegoryGet(request,response){
     if(peticion.query.id){
     try{
-     const cathegory =await Cathegory.findByPk(peticion.query.id)
+     const cathegory = await Cathegory.findByPk(peticion.query.id)
      response.setHeader("Content-Type","application/json")
      response.status(200)
      response.send(JSON.stringify(cathegory))

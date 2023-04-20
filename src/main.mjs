@@ -15,8 +15,8 @@ app.post("/elements/",controllerElementPost)
 app.delete("/elements/",controllerElementDelete)
 app.post("/icons/",controllerIconPost)
 app.get("/icons/",controllerIconGet)
-app.post("/cathegory/" ,controllerCathegoryPost)
-app.get("/cathegory/" ,controllerCathegoryGet)
+app.post("/cathegory/",controllerCathegoryPost)
+app.get("/cathegory/",controllerCathegoryGet)
 
 
 
