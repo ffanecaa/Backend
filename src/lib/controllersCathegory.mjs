@@ -16,9 +16,9 @@ async function controllerCathegoryPost(request,response){
 }
 //-------------------------get
 async function controllerCathegoryGet(request,response){
-    if(peticion.query.id){
+    if(request.query.id){
     try{
-     const cathegory = await Cathegory.findByPk(peticion.query.id)
+     const cathegory = await Cathegory.findByPk(request.query.id)
      response.setHeader("Content-Type","application/json")
      response.status(200)
      response.send(JSON.stringify(cathegory))
