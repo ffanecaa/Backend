@@ -9,7 +9,7 @@ async function controllerCathegoryPost(request,response){
         response.status(201)
         response.json(cathegory.toJSON())
     }catch(error){
-        response.status(501)
+        response.status(500)
         response.send('fallo')
     }
 }
@@ -22,7 +22,7 @@ async function controllerCathegoryGet(request,response){
      response.status(200)
      response.send(JSON.stringify(cathegory))
     }catch (error){
-        response.status(501)
+        response.status(500)
         response.send('falloget')
     }
 
