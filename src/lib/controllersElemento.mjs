@@ -59,12 +59,27 @@ response.send('ok')
 }
 
 }
+//-----------------------------------PUT----------------
+
+async function  controllerElementPut (request,response){
+    try{
+        const elemento =await Element.findByPk(request.body.id)
+        await elemento.update(request.body)
+        response.status(200)
+        response.send('ok')
+    } catch(error){
+        response.status(500)
+        response.send('error')
+    }
+}
+
 
 
 
 export{
     controllerElementGet,
     controllerElementPost,
- controllerElementDelete
+ controllerElementDelete,
+ controllerElementPut
 
 }
