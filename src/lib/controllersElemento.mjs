@@ -2,44 +2,44 @@ import {Element} from "./db.mjs"
 
 
 
-async function controllerElementGet(peticion,resposta){
-    if(peticion.query.id){
+async function controllerElementGet(request,response){
+    if(request.query.id){
     try{
-     const elemento =await Element.findByPk(peticion.query.id)
-     resposta.setHeader("Content-Type","application/json")
-     resposta.status(200)
-     resposta.send(JSON.stringify(elemento))
+     const elemento =await Element.findByPk(request.query.id)
+     response.setHeader("Content-Type","application/json")
+     response.status(200)
+     response.send(JSON.stringify(elemento))
     }catch (error){
-     resposta.status(500)
-     resposta.send('falloget')
+        response.status(500)
+        response.send('falloget')
     }
 
 } else{
     try{
         const TodosOsElementos = await Element.findAll()
-        resposta.setHeader('Content-Type','application/json')
-        resposta.status(200)
+        response.setHeader('Content-Type','application/json')
+        response.status(200)
         //resposta.send(TodosOsElementos.toJSON())// metodo mas rapido con grandes datos// 
-        resposta.send(JSON.stringify(TodosOsElementos)) 
+        response.send(JSON.stringify(TodosOsElementos)) 
     } catch(error){
-        resposta.status(500)
-        resposta.send('falloss')
+        response.status(500)
+        response.send('falloss')
     }
 }
 }
 //post -----------------------------------------//
 
-async function controllerElementPost(request,resposta){
+async function controllerElementPost(request,response){
     try{
    const elementos = await Element.create(request.body)
-   resposta.setHeader('Content-Type','application/json')
-   resposta.status(201)
-   resposta.json(elementos.toJSON())
+   response.setHeader('Content-Type','application/json')
+   response.status(201)
+   response.json(elementos.toJSON())
 
 
 }catch(error){
-   resposta.status(500)
-   resposta.send('fallopost')
+    response.status(500)
+    response.send('fallopost')
 }
 
 
@@ -59,12 +59,27 @@ response.send('ok')
 }
 
 }
+//-----------------------------------PUT----------------
+
+async function  controllerElementPut (request,response){
+    try{
+        const elemento =await Element.findByPk(request.body.id)
+        await elemento.update(request.body)
+        response.status(200)
+        response.send('ok')
+    } catch(error){
+        response.status(500)
+        response.send('error')
+    }
+}
+
 
 
 
 export{
     controllerElementGet,
     controllerElementPost,
- controllerElementDelete
+ controllerElementDelete,
+ controllerElementPut
 
 }

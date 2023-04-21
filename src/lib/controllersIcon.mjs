@@ -17,10 +17,10 @@ async function controllerIconPost(request,response){
 }
 //----------------------------get------------------------------------------
 
-async function controllerIconGet(peticion,response){
-    if(peticion.query.id){
+async function controllerIconGet(request,response){
+    if(request.query.id){
     try{
-     const iconos =await Icon.findByPk(peticion.query.id)
+     const iconos =await Icon.findByPk(request.query.id)
      response.setHeader("Content-Type","application/json")
      response.status(200)
      response.send(JSON.stringify(iconos))
