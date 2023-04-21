@@ -42,12 +42,23 @@ async function controllerCathegoryGet(request,response){
 }
 
 
+//-----------------------------------------delete
 
-
-
+async function controllerCathegoryDelete (request ,response){
+    try{
+        const cathegory = await Cathegory.findByPk(request.body.id)
+        await Cathegory.destroy()
+        response.status(200)
+        response.send('ok')
+    } catch(error){
+        response.status(500)
+        response('error')
+    }
+}
 
 
 
 
 export{controllerCathegoryPost,
-controllerCathegoryGet}
+controllerCathegoryGet,
+controllerCathegoryDelete}
