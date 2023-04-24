@@ -23,7 +23,7 @@ const Cathegory = db.define('Cathegory',{
     name:{
         type:DataTypes.STRING
     }
-}
+},{timestamp:false}
 )
 
 const Element = db.define( 'Element',{
