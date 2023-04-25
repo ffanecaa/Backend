@@ -13,8 +13,8 @@ let elements = []
 const logFilePath = `log-${new Date(Date.now()).toJSON()}.txt`
 
 function log(type,content=""){
-    const logHeader = `>>> ${icon}|${cathegory}|${element}|${coordinates}|${currentProperty}|`
-    appendFile(logFilePath, logHeader+type+": "+content+"\n")
+    //const logHeader = `>>> ${icon}|${cathegory}|${element}|${coordinates}|${currentProperty}|`
+    //appendFile(logFilePath, logHeader+type+": "+content+"\n")
 }
 
 function cleanLists(lists) {
