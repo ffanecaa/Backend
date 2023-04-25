@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./src/main.mjs",
-    "populate": "node ./src/aux/populateDB.mjs patrimoniogalego.xml"
+    "populate": "node ./src/auxiliar/populateDB.mjs patrimoniogalego.xml"
   },
   "keywords": [],
   "author": "",
