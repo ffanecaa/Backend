@@ -99,9 +99,10 @@ parser.on('closetag', tagName => {
 // <tag>TEXT</tag>
 parser.on('text', text => {
     if (coordinates) {
-        const [lat,lon] = text.split(",")
+        const [lon,lat] = text.split(",")
         element.latitude = lat
         element.longitude = lon
+       
     } else if (element) {
         element[currentProperty] = text
     } else if (cathegory) {
