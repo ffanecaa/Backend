@@ -5,9 +5,7 @@ const db = new Sequelize ({
     storage: './Database.sqlite'
 })
 
-
 // generamos base de datos
-
 
 const Icon = db.define ('Icon',{
     id:{
@@ -17,17 +15,18 @@ const Icon = db.define ('Icon',{
     file:{
         type: DataTypes.STRING
     }
-});
-const Cathegory = db.define('Cathegory',{
+})
 
+const Cathegory = db.define('Cathegory',{
     name:{
         type:DataTypes.STRING
+    },
+    description: {
+        type:DataTypes.TEXT
     }
-}
-)
+})
 
-const Element = db.define( 'Element',{
-
+const Element = db.define('Element',{
     name:{
         type:DataTypes.STRING
     },
@@ -37,14 +36,16 @@ const Element = db.define( 'Element',{
     latitude:{
         type:DataTypes.FLOAT
     },
-    longuitude:{
+    longitude:{
         type:DataTypes.FLOAT
+    },
+    icon:{
+        type:DataTypes.STRING
     }
-
 });
 
-Cathegory.hasOne(Icon)
-Icon.belongsTo(Cathegory)
+Icon.hasMany(Element, {foreignKey: "icon"})
+Element.belongsTo(Icon, {foreignKey: "icon"})
 
 Cathegory.belongsToMany(Element, { through: 'CathegoryElement'})
 Element.belongsToMany(Cathegory, { through: 'CathegoryElement'})
@@ -53,8 +54,7 @@ await db.sync ({alter:true})
 
 
 export{
-Icon,
-Cathegory,
-Element,
-
+    Icon,
+    Cathegory,
+    Element,
 }
