@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./src/main.mjs "
+    "dev": "node ./src/main.mjs",
+    "populate": "node ./src/aux/populateDB.mjs patrimoniogalego.xml"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,8 @@
     "express": "^4.18.2",
     "sequelize": "^6.31.0",
     "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "node-xml-stream": "^1.0.2"
   }
 }
