@@ -4,7 +4,7 @@ import {controllerElementGet,controllerElementPost,controllerElementDelete,contr
 import {controllerIconPost,controllerIconGet} from "./lib/controllersIcon.mjs";
 import {controllerCathegoryPost,controllerCathegoryGet,controllerCathegoryDelete} from "./lib/controllersCathegory.mjs"
 import {   controllerIconCathe} from "./lib/controllers-Icon-Cathe.mjs"
-
+import{controllerPax} from "./lib/controllersEspecificos.mjs"
 
 
 
@@ -15,10 +15,13 @@ app.use(express.json())
  app.get("/elements/",controllerElementGet)
 app.post("/elements/",controllerElementPost)
 app.delete("/elements/",controllerElementDelete)
+app.get("/elements/",controllerElementDelete)
 app.put("/elements/",controllerElementPut)
 app.post("/icons/",controllerIconPost)
 app.get("/icons/",controllerIconGet)
 app.get("/icons/",controllerIconCathe)
+
+app.get("/pax/",controllerPax)
 
 app.post("/cathegory/",controllerCathegoryPost)
 app.get("/cathegory/",controllerCathegoryGet)
