@@ -4,7 +4,7 @@ import {controllerElementGet,controllerElementPost,controllerElementDelete,contr
 import {controllerIconPost,controllerIconGet} from "./lib/controllersIcon.mjs";
 import {controllerCathegoryPost,controllerCathegoryGet,controllerCathegoryDelete} from "./lib/controllersCathegory.mjs"
 import {   controllerIconCathe} from "./lib/controllers-Icon-Cathe.mjs"
-import{controllerPax} from"./lib/controllerSpecial.mjs"
+import{controllerelementNome} from"./lib/controllerSpecial.mjs"
 
 
 
@@ -21,7 +21,7 @@ app.post("/icons/",controllerIconPost)
 app.get("/icons/",controllerIconGet)
 app.get("/icons/",controllerIconCathe)
 
-app.get("/pax/",controllerPax)
+app.get("/pax/",controllerelementNome)
 
 app.post("/cathegory/",controllerCathegoryPost)
 app.get("/cathegory/",controllerCathegoryGet)
