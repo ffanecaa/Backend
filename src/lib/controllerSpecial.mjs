@@ -42,10 +42,9 @@ import {Element} from "./db.mjs"
 
 
 async function controllerelementNome(req,res){
-    if ((req.query.paxina)&& (req.query.unidades)){
+    if ((req.query.offset)&& (req.query.limit)){
     try{
-        let offset = unidades*(paxina - 1)
-        let limit = unidades
+    
          const elemento = await Element.findAll({offset,limit})
          
       res.setHeader("Content-Type",'application/json')
