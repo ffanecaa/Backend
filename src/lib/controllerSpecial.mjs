@@ -6,58 +6,38 @@
 
 
 
-import {Op} from "sequelize"
+
 import {Element} from "./db.mjs"
 
 
 
-
-
-
-// async function controllerPax(req,res){
-//     const pageNumber =Number.parseInt(req.query.page)
-//     const sizeNumber =Number.parseInt(req.query.size)
-// // let page = 0
-// //       if(!Number.isNaN(pageNumber)&& pageNumber > 0){
-// //         page= pageNumber
-// //       }
-// // let size = 10
-// //       if(!Number.isNaN(sizeNumber) &&
-// //        sizeNumber >0 &&  sizeNumber < 10) {
-// //         size = sizeNumber
-// //        }
-      
-//     const elemento = await Element.findAndCountAll({
-//         limit:size,
-//         offset: page *size 
-//     })
+  async function controllerelementNome(req, res) {
+    try {
+      const page = parseInt(req.query.page) ;
+      const limit = parseInt(req.query.limit )
    
-//     res.send({
-//         content: elemento.rows,
-//         totalPages:Math.ceil(elemento.count/size)
-//     })
-    
-// } 
-
-
-
-async function controllerelementNome(req,res){
-    if ((req.query.offset)&& (req.query.limit)){
-    try{
-    
-         const elemento = await Element.findAll({offset,limit})
-         
-      res.setHeader("Content-Type",'application/json')
-      res.status(200)
-      res.send(peticion.query.elemento)
-       }catch(error){
-        res.status(500)
-        res.send(error)
-       }
-
-}
-}
-
+      const offset = (page - 1) * limit
+      const elements = await Element.findAll({
+        offset,
+        limit
+      });
+      const nextPage = page + 1;
+    const previousPage = page - 1;
+      res.status(200).json({
+         elements,
+        pagination: {
+          page,
+          limit,
+          nextPAge: `/pax/?page=${nextPage}limit=${limit}`,
+          previousPage:`/pax/?page=${previousPage}limit=${limit}`
+        },
+      });
+    } catch (error) {
+      res.status(500)
+      res.send("error");
+    }
+  }
+  
 
 
 export{controllerelementNome
