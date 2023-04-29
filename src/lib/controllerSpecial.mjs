@@ -28,8 +28,8 @@ import {Element} from "./db.mjs"
         pagination: {
           page,
           limit,
-          nextPAge: `/pax/?page=${nextPage}limit=${limit}`,
-          previousPage:`/pax/?page=${previousPage}limit=${limit}`
+          nextPAge: `/pax/?page=${nextPage}&limit=${limit}`,
+          previousPage:`/pax/?page=${previousPage}&limit=${limit}`
         },
       });
     } catch (error) {
