@@ -21,7 +21,7 @@ import {Element} from "./db.mjs"
         offset,
         limit
       });
-      const nextPage = page + 1;
+    const nextPage = page + 1;
     const previousPage = page - 1;
       res.status(200).json({
          elements,
