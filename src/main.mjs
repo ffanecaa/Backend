@@ -7,6 +7,9 @@ import {   controllerIconCathe} from "./lib/controllers-Icon-Cathe.mjs"
 import{controllerelementNome} from"./lib/controllerSpecial.mjs"
 
 
+import{controllerlink} from"./lib/controllersLink.mjs"
+
+
 
 const app = express()
 app.use(cors())
@@ -27,7 +30,7 @@ app.post("/cathegory/",controllerCathegoryPost)
 app.get("/cathegory/",controllerCathegoryGet)
 app.delete("/cathegory/",controllerCathegoryDelete)
 
-
+app.get("/link/",controllerlink)
 
 
 
