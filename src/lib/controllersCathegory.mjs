@@ -14,7 +14,7 @@ async function controllerCathegoryPost(request,response){
         response.send('fallo')
     }
 }
-//-------------------------get
+//-------------------------get-------------------
 async function controllerCathegoryGet(request,response){
     if(request.query.id){
     try{
