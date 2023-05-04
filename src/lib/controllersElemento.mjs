@@ -73,6 +73,27 @@ async function  controllerElementPut (request,response){
     }
 }
 
+//----------CONTROLADOR GET PARAMETRO-----------
+
+async function controllerElementID (request,response){
+    try{
+        const elemento = await Element.findByPk(request.params.id)
+        response.setHeader("Content-Type","application/json")
+        response.status(200)
+        response.send(JSON.stringify(elemento))
+    } catch(error){
+        response.status(500)
+        response.send(error)
+        console.log(error)
+    }
+}
+
+
+
+
+
+
+
 
 
 
@@ -80,6 +101,7 @@ export{
     controllerElementGet,
     controllerElementPost,
      controllerElementDelete,
-    controllerElementPut
+    controllerElementPut,
+    controllerElementID
 
 }
