@@ -7,7 +7,7 @@ import {   controllerIconCathe} from "./lib/controllers-Icon-Cathe.mjs"
 import{controllerelementNome} from"./lib/controllerSpecial.mjs"
 
 
-import{controllerlink} from"./lib/controllersLink.mjs"
+import{controllerlink, controllerlinkName} from"./lib/controllersLink.mjs"
 
 
 
@@ -21,7 +21,7 @@ app.delete("/elements/",controllerElementDelete)
 app.get("/elements/",controllerElementDelete)
 app.put("/elements/",controllerElementPut)
 
-app.get("/link/:id/",controllerElementID)
+app.get("/links/:id",controllerElementID)
 
 
 
@@ -34,8 +34,9 @@ app.get("/pax/",controllerelementNome)
 app.post("/cathegory/",controllerCathegoryPost)
 app.get("/cathegory/",controllerCathegoryGet)
 app.delete("/cathegory/",controllerCathegoryDelete)
-
-app.get("/link/",controllerlink)
+//este es 
+app.get("/link/id",controllerlink)
+app.get("/links/name",controllerlinkName)
 
 
 
