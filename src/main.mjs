@@ -36,7 +36,7 @@ app.get("/cathegory/",controllerCathegoryGet)
 app.delete("/cathegory/",controllerCathegoryDelete)
 //este es 
 app.get("/link/:id",controllerlink)
-app.get("/links/name",controllerlinkName)
+app.get("/links/:name",controllerlinkName)
 
 
 

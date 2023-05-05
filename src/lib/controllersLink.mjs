@@ -23,7 +23,7 @@ async function controllerlinkName(request,response){
         
             where:{
                 [Op.substring]:
-               { "name": request.params.name}
+             {"name": request.params.name}
             }
     
              } )
