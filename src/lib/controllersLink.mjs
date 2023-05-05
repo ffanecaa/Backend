@@ -19,9 +19,14 @@ async function controllerlink(request,response){
 async function controllerlinkName(request,response){
     try{
        
-        const elemento= await Element.findOne(
-          request.params.name
-        )
+        const elemento= await Element.findOne({
+        
+            where:{
+                [Op.substring]:
+               { "name": request.params.name}
+            }
+    
+             } )
         response.setHeader("Content-Type","application/json")
         response.status(200)
         response.send(JSON.stringify(elemento))
