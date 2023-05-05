@@ -21,7 +21,7 @@ app.delete("/elements/",controllerElementDelete)
 app.get("/elements/",controllerElementDelete)
 app.put("/elements/",controllerElementPut)
 
-app.get("/links/:id",controllerElementID)
+app.get("/links/id",controllerElementID)
 
 
 
@@ -35,7 +35,7 @@ app.post("/cathegory/",controllerCathegoryPost)
 app.get("/cathegory/",controllerCathegoryGet)
 app.delete("/cathegory/",controllerCathegoryDelete)
 //este es 
-app.get("/link/id",controllerlink)
+app.get("/link/:id",controllerlink)
 app.get("/links/name",controllerlinkName)
 
 
