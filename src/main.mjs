@@ -5,9 +5,10 @@ import {controllerIconPost,controllerIconGet} from "./lib/controllersIcon.mjs";
 import {controllerCathegoryPost,controllerCathegoryGet,controllerCathegoryDelete} from "./lib/controllersCathegory.mjs"
 import {   controllerIconCathe} from "./lib/controllers-Icon-Cathe.mjs"
 import{controllerelementNome} from"./lib/controllerSpecial.mjs"
-import{controllerCatheEle} from ".lib/controllerCatheElemento.mjs"
+
 
 import{controllerlink, controllerlinkName} from"./lib/controllersLink.mjs"
+import { controllerCatheEle} from "./lib/controllerCatheElemento.mjs";
 
 
 
@@ -38,7 +39,8 @@ app.delete("/cathegory/",controllerCathegoryDelete)
 app.get("/link/:id",controllerlink)
 app.get("/links/:name",controllerlinkName)
 
-app.get("/cate/", controllerCatheEle)
+app.get("/cate/:name",controllerCatheEle)
+
 
 
 
