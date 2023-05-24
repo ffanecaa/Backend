@@ -16,6 +16,14 @@ const Icon = db.define ('Icon',{
         type: DataTypes.STRING
     }
 })
+const Usuarios = db.define('Usuarios',{
+    name:{
+        type:DataTypes.STRING
+    },
+    password: {
+        type:DataTypes.STRING
+    }
+})
 
 const Cathegory = db.define('Cathegory',{
     name:{
@@ -61,4 +69,5 @@ export{
     Icon,
     Cathegory,
     Element,
+    Usuarios
 }
