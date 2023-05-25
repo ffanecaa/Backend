@@ -9,7 +9,7 @@ import{controllerelementNome} from"./lib/controllerSpecial.mjs"
 
 import{controllerlink, controllerlinkName} from"./lib/controllersLink.mjs"
 import { controllerCatheEle} from "./lib/controllerCatheElemento.mjs";
-import { controllerUsuarioPost} from "./lib/controllerUsuarios.mjs";
+import { controllerUsuarioPost,controlleDeleteUsuario,controllerSesion} from "./lib/controllerUsuarios.mjs";
 
 
 
@@ -25,10 +25,12 @@ app.put("/elements/",controllerElementPut)
 
 app.get("/links/id",controllerElementID)
 
-
+ //-------------USUARIOS-----------------
 app.post("/usuarios/",controllerUsuarioPost)
+app.post("/usuarios/sesion/",controllerSesion)
+app.delete("/usuarios/",controlleDeleteUsuario)
 
-
+//------------ICONOS----------------
 
 app.post("/icons/",controllerIconPost)
 app.get("/icons/",controllerIconGet)
