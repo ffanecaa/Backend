@@ -1,7 +1,7 @@
 import {response} from "express"
 
 function authorizacion (request,response,next){
-    const token = request.headers.authorizacion?.split(" ")[1]
+    const token = request.headers.authorizacion?.split(" ")
     if ( ! request.headers.authorizacion.id){
         response.sendStatus(403)
     }else{

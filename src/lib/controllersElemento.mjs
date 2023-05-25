@@ -2,7 +2,7 @@ import {Element} from "./db.mjs"
 
 
 
-async function controllerElementGet(request,response){
+async function controllerElementGet(request,response,authorizacion){
     if(request.query.id){
     try{
      const elemento =await Element.findByPk(request.query.id)
