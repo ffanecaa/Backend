@@ -9,8 +9,8 @@ import{controllerelementNome} from"./lib/controllerSpecial.mjs"
 
 import{controllerlink, controllerlinkName} from"./lib/controllersLink.mjs"
 import { controllerCatheEle} from "./lib/controllerCatheElemento.mjs";
-
-
+import { controllerUsuarioPost,controlleDeleteUsuario,controllerSesion} from "./lib/controllerUsuarios.mjs";
+import {authorizacion} from "./Middleware.mjs"
 
 const app = express()
 app.use(cors())
@@ -41,6 +41,11 @@ app.get("/links/:name",controllerlinkName)
 
 app.get("/cate/",controllerCatheEle)
 
+
+//---------------USUARIOS----------
+app.post("/usuarios/",controllerUsuarioPost)
+app.post("/usuarios/sesion/",controllerSesion)
+app.delete("/usuarios/",controlleDeleteUsuario)
 
 
 

@@ -25,6 +25,14 @@ const Cathegory = db.define('Cathegory',{
         type:DataTypes.TEXT
     }
 })
+const Usuarios = db.define('Usuarios',{
+    name:{
+        type:DataTypes.STRING
+    },
+    password: {
+        type:DataTypes.STRING
+    }
+})
 
 const Element = db.define('Element',{
     name:{
@@ -49,7 +57,7 @@ Element.belongsTo(Icon, {foreignKey: "icon"})
 
 Cathegory.belongsToMany(Element, { through: 'CathegoryElement'})
 Element.belongsToMany(Cathegory, { through: 'CathegoryElement'})
-
+Usuarios.hasMany(Element)
 await db.query('PRAGMA foreign_keys = false;');
 //await db.sync ({alter:true})
 await db.sync ()
@@ -61,4 +69,5 @@ export{
     Icon,
     Cathegory,
     Element,
+    Usuarios
 }
