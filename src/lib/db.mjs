@@ -57,7 +57,10 @@ Element.belongsTo(Icon, {foreignKey: "icon"})
 
 Cathegory.belongsToMany(Element, { through: 'CathegoryElement'})
 Element.belongsToMany(Cathegory, { through: 'CathegoryElement'})
+
 Usuarios.hasMany(Element)
+Element.belongsTo(Usuarios)
+
 await db.query('PRAGMA foreign_keys = false;');
 //await db.sync ({alter:true})
 await db.sync ()

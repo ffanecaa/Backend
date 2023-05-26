@@ -17,7 +17,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 //  ------------------ELEMENTOS--------------------
- app.get("/elements/", authorizacion,controllerElementGet)
+ app.get("/elements/", controllerElementGet)
 app.post("/elements/",authorizacion,controllerElementPost)
 app.delete("/elements/",controllerElementDelete)
 app.get("/elements/",controllerElementDelete)
