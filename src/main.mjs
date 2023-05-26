@@ -10,15 +10,15 @@ import{controllerelementNome} from"./lib/controllerSpecial.mjs"
 import{controllerlink, controllerlinkName} from"./lib/controllersLink.mjs"
 import { controllerCatheEle} from "./lib/controllerCatheElemento.mjs";
 import { controllerUsuarioPost,controlleDeleteUsuario,controllerSesion} from "./lib/controllerUsuarios.mjs";
-
+import {authorizacion} from "./Middleware.mjs"
 
 
 const app = express()
 app.use(cors())
 app.use(express.json())
-
- app.get("/elements/",controllerElementGet)
-app.post("/elements/",controllerElementPost)
+//  ------------------ELEMENTOS--------------------
+ app.get("/elements/", authorizacion,controllerElementGet)
+app.post("/elements/",authorizacion,controllerElementPost)
 app.delete("/elements/",controllerElementDelete)
 app.get("/elements/",controllerElementDelete)
 app.put("/elements/",controllerElementPut)

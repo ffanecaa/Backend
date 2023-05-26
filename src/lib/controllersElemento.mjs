@@ -2,7 +2,7 @@ import {Element} from "./db.mjs"
 
 
 
-async function controllerElementGet(request,response,authorizacion){
+async function controllerElementGet(request,response){
     if(request.query.id){
     try{
      const elemento =await Element.findByPk(request.query.id)
@@ -22,6 +22,7 @@ async function controllerElementGet(request,response,authorizacion){
         //resposta.send(TodosOsElementos.toJSON())// metodo mas rapido con grandes datos// 
         response.send(JSON.stringify(TodosOsElementos)) 
     } catch(error){
+        console.log(error)
         response.status(500)
         response.send('falloss')
     }

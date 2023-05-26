@@ -1,12 +1,14 @@
-import {response} from "express"
+
 
 function authorizacion (request,response,next){
-    const token = request.headers.authorizacion?.split(" ")
-    if ( ! request.headers.authorizacion.id){
-        response.sendStatus(403)
-    }else{
+    const [,tokenJSON] = request.headers.authorizacion?.split(" ")
+    const token = JSON.parse(tokenJSON)
+    if ( token.id){
         response.locals.token =token
         return next
+  
+    }else{
+        response.sendStatus(403)
 
     }
 }
