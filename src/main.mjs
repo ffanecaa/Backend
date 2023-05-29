@@ -12,6 +12,8 @@ import { controllerCatheEle} from "./lib/controllerCatheElemento.mjs";
 import { controllerUsuarioPost,controlleDeleteUsuario,controllerSesion} from "./lib/controllerUsuarios.mjs";
 import {authorizacion} from "./Middleware.mjs"
 
+import {buscarElementosCercanos} from "./lib/controllerDistancia.mjs"
+
 
 const app = express()
 app.use(cors())
@@ -46,6 +48,9 @@ app.get("/link/:id",controllerlink)
 app.get("/links/:name",controllerlinkName)
 
 app.get("/cate/",controllerCatheEle)
+
+
+app.get("/distancia/",buscarElementosCercanos)
 
 
 
