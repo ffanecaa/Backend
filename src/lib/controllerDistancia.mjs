@@ -22,7 +22,7 @@ async function buscarElementosCercanos(req, res) {
   }
   
   
-  // Función para calcular la distancia entre dos puntos utilizando la fórmula del haversine
+  // la fórmula HAVERSINE 
 function calcularDistancia(longitud1, latitud1, longitud2, latitud2) {
     const radioTierra = 6371; // Radio promedio de la Tierra en kilómetros
   

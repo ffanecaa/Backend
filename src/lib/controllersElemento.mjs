@@ -1,6 +1,6 @@
 import {Element} from "./db.mjs"
 
-
+//--------------------------------get-------------
 
 async function controllerElementGet(request,response){
     if(request.query.id){
@@ -28,7 +28,7 @@ async function controllerElementGet(request,response){
     }
 }
 }
-//post -----------------------------------------//
+//----------------------post -----------------------------------------//
 
 async function controllerElementPost(request,response){
     try{
