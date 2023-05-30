@@ -1,9 +1,10 @@
-import {Element,Cathegory} from "./db.mjs"
-import{Op} from "sequelize"
+import {Element} from "./db.mjs"
+
 
 async function buscarElementosCercanos(req, res) {
-    const { longitude, latitude } =parseInt( req.query); // Obtén la longitud y latitud de la ubicación
-  
+  const latitude =parseFloat( req.query.latitude); // Obtén la longitud y latitud de la ubicación
+  const longitude =parseFloat( req.query.longitude); // Obtén la longitud y latitud de la ubicación
+/* tiene que ser float pq sino pierod decimales */
     try {
       const elementos = await Element.findAll();
   
