@@ -5,6 +5,7 @@ import {controllerIconPost,controllerIconGet} from "./lib/controllersIcon.mjs";
 import {controllerCathegoryPost,controllerCathegoryGet,controllerCathegoryDelete} from "./lib/controllersCathegory.mjs"
 import {   controllerIconCathe} from "./lib/controllers-Icon-Cathe.mjs"
 import{controllerelementNome} from"./lib/controllerSpecial.mjs"
+import{controllerelementNomepAX} from"./lib/controllerSpecial.mjs"
 
 
 import{controllerlink, controllerlinkName} from"./lib/controllersLink.mjs"
@@ -13,7 +14,7 @@ import { controllerUsuarioPost,controlleDeleteUsuario,controllerSesion} from "./
 import {authorizacion} from "./Middleware.mjs"
 
 import {buscarElementosCercanos} from "./lib/controllerDistancia.mjs"
-
+import {controllerPax} from "./lib/controllers-especial.mjs"
 
 const app = express()
 app.use(cors())
@@ -26,6 +27,8 @@ app.get("/elements/",controllerElementDelete)
 app.put("/elements/",controllerElementPut)
 
 app.get("/links/id",controllerElementID)
+app.get("/varios/",controllerPax)
+
 
  //-------------USUARIOS-----------------
 app.post("/usuarios/",controllerUsuarioPost)
@@ -37,9 +40,12 @@ app.delete("/usuarios/",controlleDeleteUsuario)
 app.post("/icons/",controllerIconPost)
 app.get("/icons/",controllerIconGet)
 app.get("/icons/",controllerIconCathe)
-
+//------------------------------------------------ELEMENTOS BUSCAR-----------------------------------------////
 app.get("/pax/",controllerelementNome)
+app.get("/elements/pax/",controllerelementNomepAX)
 
+
+//-----------------------------------------------CATEGORIAS---------------------------------------
 app.post("/cathegory/",controllerCathegoryPost)
 app.get("/cathegory/",controllerCathegoryGet)
 app.delete("/cathegory/",controllerCathegoryDelete)

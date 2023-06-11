@@ -12,18 +12,21 @@ async function controllerPax(request,response){
     if(request.query.name){
 try{
    
- const elemento = await Element.findAll({
+ const elements = await Element.findAll({
   where:{
    
-   [Op.substring]:[{"name":request.query.name}]
-  },
+//    [Op.substring]:[{"name":request.query.name}]
+"name":{
+    [Op.like]: `%${request.query.name}%`
+}
+  }
 //   limit:limit,
 //   offset: offset
  })
 
  response.setHeader("Content-Type","application/json")
  response.status(200)
- response.send(JSON.stringify(elemento))
+ response.send(JSON.stringify(elements))
 
 }catch{
     console.log(error)
