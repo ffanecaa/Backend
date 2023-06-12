@@ -40,7 +40,7 @@ import {Op} from "sequelize"
   
 
 
-/////////////////////////CONTORLADOR NOMBRES PAGINADOS
+/////////////////////////CONTORLADOR NOMBRES PAGINADOS//////////////////////
 
 async function controllerelementNomepAX(req,res){
   if ( req.query.name){
