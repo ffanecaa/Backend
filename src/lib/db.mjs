@@ -1,5 +1,6 @@
 import {Sequelize, DataTypes} from "sequelize"
 
+
 const db = new Sequelize ({
     dialect: 'sqlite',
     storage: './Database.sqlite'
@@ -10,27 +11,27 @@ const db = new Sequelize ({
 const Icon = db.define ('Icon',{
     id:{
         type:DataTypes.STRING,
-        primaryKey: true
+        primaryKey: true,
     },
     file:{
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
     }
 })
 const Usuarios = db.define('Usuarios',{
     name:{
-        type:DataTypes.STRING
+        type:DataTypes.STRING,
     },
     password: {
-        type:DataTypes.STRING
+        type:DataTypes.STRING,
     }
 })
 
 const Cathegory = db.define('Cathegory',{
     name:{
-        type:DataTypes.STRING
+        type:DataTypes.STRING,
     },
     description: {
-        type:DataTypes.TEXT
+        type:DataTypes.TEXT,
     }
 })
 
