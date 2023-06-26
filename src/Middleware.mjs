@@ -5,7 +5,7 @@ function authorizacion (request,response,next){
     const token = JSON.parse(tokenJSON)
     if ( token.id){
         response.locals.token =token  // nos lo da express 
-  
+        next()
     }else{
         response.sendStatus(403)
 
