@@ -11,8 +11,8 @@ import{controllerelementNomepAX} from"./lib/controllerSpecial.mjs"
 
 import{controllerlink, controllerlinkName} from"./lib/controllersLink.mjs"
 import { controllerCatheEle} from "./lib/controllerCatheElemento.mjs";
-import { controllerUsuarioPost,controlleDeleteUsuario,controllerSesion, controllerCrypto} from "./lib/controllerUsuarios.mjs";
-import {authorizacion} from "./Middleware.mjs"
+import { controllerUsuarioPost,controlleDeleteUsuario,controllerSesion, controllerCrypto,controllercontrasinal} from "./lib/controllerUsuarios.mjs";
+import { intermedioAutorization } from "./Middleware.mjs"
 
 import {buscarElementosCercanos} from "./lib/controllerDistancia.mjs"
 import {controllerPax} from "./lib/controllers-especial.mjs"
@@ -35,7 +35,9 @@ app.get("/varios/",controllerPax)
  //-------------USUARIOS-----------------
 app.post("/usuarios/",controllerUsuarioPost)
 app.post("/usuarioscrypto/",controllerCrypto)
-app.post("/usuarios/sesion/",controllerSesion)
+
+    app.post("/usuarios/sesion/",controllerSesion)
+app.post("/usuarios/sesionJwt/",intermedioAutorization,controllercontrasinal )
 app.delete("/usuarios/",controlleDeleteUsuario)
 
 //------------ICONOS----------------

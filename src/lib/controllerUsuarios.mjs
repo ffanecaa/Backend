@@ -1,6 +1,9 @@
 import { Usuarios } from "./db.mjs";
-import {hash} from "bcrypt"
+import {hash,compare} from "bcrypt"
 import manexadorDeExcepcions from "./excepcions.mjs";
+import jwt from "jsonwebtoken"
+import { intermedioAutorization } from "./middleware.mjs";
+
 
 async function controllerUsuarioPost(request,response){
  try{
@@ -29,10 +32,35 @@ async function controllerUsuarioPost(request,response){
 
    }
 
+   /// ---------------------AUTENTIFICACION -----------------------
 
+async function controllercontrasinal (request,response){
+   try {
+      const usuario = await Usuarios.findOne({
+         where:{
+            name:request.body.name
+         }
+      })
+      
+      if ( usuario === null ) return response.sendStatus(401)
 
+      const autentificado = await compare(
+          request.body.password, usuario.resumoContrasinal
+      )
 
+      if (autentificado) {
+          const paseAutorizacion = jwt.sign({ id: usuario.id }, process.env.JWT_SECRET)
+          return response.send(paseAutorizacion)
+      }
 
+      return response.sendStatus(401)
+      
+  } catch (error) {
+      return manexadorDeExcepcions(error, response)
+  }
+}
+
+//--------------------------------------------
 
 
 // --------------delete usuarios-------
@@ -81,5 +109,6 @@ export{
     controllerUsuarioPost,
     controlleDeleteUsuario,
     controllerSesion,
-    controllerCrypto
+    controllerCrypto,
+    controllercontrasinal
    }
