@@ -8,9 +8,10 @@ import{controllerelementNome} from"./lib/controllerSpecial.mjs"
 import{controllerelementNomepAX} from"./lib/controllerSpecial.mjs"
 
 
+
 import{controllerlink, controllerlinkName} from"./lib/controllersLink.mjs"
 import { controllerCatheEle} from "./lib/controllerCatheElemento.mjs";
-import { controllerUsuarioPost,controlleDeleteUsuario,controllerSesion} from "./lib/controllerUsuarios.mjs";
+import { controllerUsuarioPost,controlleDeleteUsuario,controllerSesion, controllerCrypto} from "./lib/controllerUsuarios.mjs";
 import {authorizacion} from "./Middleware.mjs"
 
 import {buscarElementosCercanos} from "./lib/controllerDistancia.mjs"
@@ -33,6 +34,7 @@ app.get("/varios/",controllerPax)
 
  //-------------USUARIOS-----------------
 app.post("/usuarios/",controllerUsuarioPost)
+app.post("/usuarioscrypto/",controllerCrypto)
 app.post("/usuarios/sesion/",controllerSesion)
 app.delete("/usuarios/",controlleDeleteUsuario)
 

@@ -1,5 +1,6 @@
 import { Usuarios } from "./db.mjs";
-
+import {hash} from "bcrypt"
+import manexadorDeExcepcions from "./excepcions.mjs";
 
 async function controllerUsuarioPost(request,response){
  try{
@@ -7,11 +8,33 @@ async function controllerUsuarioPost(request,response){
     response.setHeader("Content-Type","application/json")
     response.status(201)
     response.json(usuarios.toJSON())
- } catch(error){
-    response.status(500)
-    response.send(fallo)
+ } catch(excepcion){
+   manexadorDeExcepcions(excepcion, resposta)
  }
 }
+
+
+
+//-----------------crypto post-----------------------------------------
+   async function controllerCrypto( request,response){
+    try{
+
+      const resumoContrasinal = await hash(request.body.password,10)
+      const User = {...request.body , resumoContrasinal}
+      const usuario = await Usuarios.create(User)
+      response.status(201).json(usuario)
+    }catch(excepcion){
+      manexadorDeExcepcions(excepcion, response)
+    }
+
+   }
+
+
+
+
+
+
+
 // --------------delete usuarios-------
 
 async function controlleDeleteUsuario (request,response){
@@ -57,5 +80,6 @@ async function controllerSesion(request,response){
 export{
     controllerUsuarioPost,
     controlleDeleteUsuario,
-    controllerSesion
-}
+    controllerSesion,
+    controllerCrypto
+   }
