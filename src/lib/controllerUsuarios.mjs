@@ -1,8 +1,9 @@
 import { Usuarios } from "./db.mjs";
-import {hash,compare} from "bcrypt"
+import {compare} from "bcrypt"
+import {hash} from "bcrypt"
 import manexadorDeExcepcions from "./excepcions.mjs";
 import jwt from "jsonwebtoken"
-import { intermedioAutorization } from "./middleware.mjs";
+import { intermedioAutorization } from "../Middleware.mjs";
 
 
 async function controllerUsuarioPost(request,response){
@@ -23,7 +24,7 @@ async function controllerUsuarioPost(request,response){
     try{
 
       const resumoContrasinal = await hash(request.body.password,10)
-      const User = {...request.body , resumoContrasinal}
+      const User = {...request.body , password:resumoContrasinal}
       const usuario = await Usuarios.create(User)
       response.status(201).json(usuario)
     }catch(excepcion){
