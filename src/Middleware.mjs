@@ -23,7 +23,7 @@ function intermedioAutorization (request, response, next) {
         const [_, token] = request.headers.authorization.split(" ")
         const datosAutorizacion = jwt.verify(token, process.env.JWT_SECRET)
         response.locals.autorizacion = datosAutorizacion
-        return seguinte()
+        return next()
     } catch (error) {
         response.sendStatus(403)
     }

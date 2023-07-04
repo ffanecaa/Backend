@@ -46,7 +46,7 @@ async function controllercontrasinal (request,response){
       if ( usuario === null ) return response.sendStatus(401)
 
       const autentificado = await compare(
-          request.body.password, usuario.resumoContrasinal
+          request.body.password, usuario.password
       )
 
       if (autentificado) {

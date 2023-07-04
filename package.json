@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node ./src/main.mjs",
+    "dev": "node -r ./dotenv.js ./src/main.mjs",
     "populate": "node ./src/auxiliar/populateDB.mjs patrimoniogalego.xml"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {
+    "dotenv": "^16.3.1",
     "node-xml-stream": "^1.0.2",
     "nodemon": "^2.0.22"
   }
