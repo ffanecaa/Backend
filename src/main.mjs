@@ -10,7 +10,7 @@ import{controllerelementNome} from"./lib/controllerSpecial.mjs"
 import{controllerlink, controllerlinkName} from"./lib/controllersLink.mjs"
 import { controllerCatheEle} from "./lib/controllerCatheElemento.mjs";
 
-
+import{controllerelementNomepAX,controllerPax} from "./lib/controllers-especial.mjs"
 
 const app = express()
 app.use(cors())
@@ -24,7 +24,7 @@ app.put("/elements/",controllerElementPut)
 
 app.get("/links/id",controllerElementID)
 
-
+app.get("/elements/pax/",controllerelementNomepAX)
 
 app.post("/icons/",controllerIconPost)
 app.get("/icons/",controllerIconGet)
@@ -41,6 +41,7 @@ app.get("/links/:name",controllerlinkName)
 
 app.get("/cate/",controllerCatheEle)
 
+app.get("/varios/",controllerPax)
 
 
 

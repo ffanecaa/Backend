@@ -9,16 +9,16 @@ import {Element} from "./db.mjs"
 // let limit= 10
 // let offset = limit*(page-1)
 async function controllerPax(request,response){
+    console.log(request.query.name)
     if(request.query.name){
 try{
    
  const elemento = await Element.findAll({
   where:{
+   name:{
+    [Op.like]: `%${request.query.name}%`
+  }},
    
-   [Op.substring]:[{"name":request.query.name}]
-  },
-//   limit:limit,
-//   offset: offset
  })
 
  response.setHeader("Content-Type","application/json")
@@ -38,11 +38,51 @@ try{
 
 
 
+async function controllerelementNomepAX(req,res){
+    if ( req.query.name){
+      try{
+        const page = parseInt(req.query.page);
+        const limit = parseInt(req.query.limit)
+  
+       const offset =(page-1)*limit
+  
+  
+        const elements = await Element.findAll({
+          offset,
+          limit,
+          where: {
+            "name":{
+              [Op.like]: `%${req.query.name}%`
+            }
+          }
+        })
+        const nextPage = page + 1;
+      const previousPage = page - 1;
+      const UrlNext= `/elements/pax/?page=${nextPage}&limit=${limit}&name=${req.query.name}`;
+  const UrlPrevious =`/elements/pax/?page=${previousPage}&limit=${limit}&name=${req.query.name}`
+        res.status(200).json({
+          elements,
+         pagination: {
+           page,
+           limit,
+            nextPAge: UrlNext,
+            previousPage:UrlPrevious,
+         },
+       });
+      }catch(error){
+        console.log(error)
+        res.status(500)
+        res.send('error')
+      }
+    }
+  }
+  
+  
+  
 
 
 
 
 
 
-
-export {controllerPax}
+export {controllerPax,controllerelementNomepAX}

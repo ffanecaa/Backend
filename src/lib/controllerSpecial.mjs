@@ -6,6 +6,7 @@
 
 
 
+import {Op} from "sequelize"
 
 import {Element} from "./db.mjs"
 
@@ -40,6 +41,27 @@ import {Element} from "./db.mjs"
   
 
 
+//   async function controllerPax(request, response) {
+//     try {
+//         if (request.query.name) {
+//             const elements = await Element.findAll({
+//                 where: {
+//                     name: {
+//                         [Op.like]: `%${request.query.name}%`
+//                     }
+//                 }
+//             });
+
+//             response.setHeader("Content-Type", "application/json");
+//             response.status(200).send(JSON.stringify(elements));
+//         } else {
+//             response.status(400).send("Error: No se proporcionó un nombre en la consulta.");
+//         }
+//     } catch (error) {
+//         console.error(error);
+//         response.status(500).send("Error interno del servidor");
+//     }
+// }
 
 
 
@@ -51,7 +73,6 @@ import {Element} from "./db.mjs"
 
 
 
-  
 
-export{controllerelementNome
+export { controllerelementNome
 }
